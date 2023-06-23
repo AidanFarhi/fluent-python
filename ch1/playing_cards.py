@@ -3,7 +3,7 @@ import collections
 Card = collections.namedtuple('Card', ['rank', 'suit'])
 
 class FrenchDeck:
-    ranks = [str(n) for n in range(1, 11)] + list('JQKA')
+    ranks = [str(n) for n in range(2, 11)] + list('JQKA')
     suits = 'spades diamonds clubs hearts'.split()
 
     def __init__(self):
@@ -14,3 +14,24 @@ class FrenchDeck:
     
     def __getitem__(self, position):
         return self._cards[position]
+
+
+if __name__ == '__main__':
+    from random import choice
+    random_card = Card('7', 'diamonds')
+    print(random_card)
+
+    deck = FrenchDeck()
+    print(len(deck))
+
+    print(choice(deck))
+    print(choice(deck))
+
+    print(deck[:3])
+
+    for card in deck:
+        print(card)
+
+    for card in reversed(deck):
+        print(card)
+    
